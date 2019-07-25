@@ -1,19 +1,15 @@
-//gif creator, use giphy to populate web page with a given word for a specific theme.
-//remember api parameters like q, limit, and rating
-//create an array of strings , each related to a topic i like. save to a variable called 'topics'.
-//take the topics and create buttons in the html
-//use loop to append buttons for each string 
-//when button is clicked, grab 10 gifs (non-animated) and place on page
-//on click, the gif should animate. click again to stop
-//display rating of gif under each respective gif
-//add a form to add a value to the topics array. make function call that takes each topic and remakes the buttons on the page.
+//A heads up: I didn't have time to make the website mobile-responsive, get the gifs to pause correctly, or generate
+//a new topic via an input bar
+
+
+
 $("#carouselControls1").hide();
 $("#carouselControls2").hide();
 $("#carouselControls3").hide();
 $("#button1").on("click", function() {
-    var animal = $(this).attr("data-animal");
+    var topic = $(this).attr("data-topic");
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-      animal + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=12";
+      topic + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=12";
     $(this).hide();
     $("#carouselControls1").show();
 
@@ -24,54 +20,56 @@ $("#button1").on("click", function() {
         var results = response.data;
 
         for (var i = 0; i < 4; i++) {
-          var animalDiv = $("<div>");
-          $(animalDiv).css('margin', "1em");
+          var topicDiv = $("<div>");
+          $(topicDiv).css('margin', "1em");
 
           var rating = results[i].rating;
 
           var p = $("<p>").text("Rating: " + rating);
 
-          var animalImage = $("<img>");
-          animalImage.attr("src", results[i].images.fixed_height.url);
+          var topicImage = $("<img>");
+          topicImage.attr("src", results[i].images.fixed_height.url, "data-state");
 
-          animalDiv.prepend(p);
-          animalDiv.prepend(animalImage);
+          topicDiv.prepend(p);
+          topicDiv.prepend(topicImage);
 
-          $("#displayGifs1a").prepend(animalDiv);
+          $("#displayGifs1a").prepend(topicDiv);
+
+
         }
 
         for (var i = 4; i < 8; i++) {
-            var animalDiv = $("<div>");
-            $(animalDiv).css('margin', "1em");
+            var topicDiv = $("<div>");
+            $(topicDiv).css('margin', "1em");
   
             var rating = results[i].rating;
   
             var p = $("<p>").text("Rating: " + rating);
   
-            var animalImage = $("<img>");
-            animalImage.attr("src", results[i].images.fixed_height.url);
+            var topicImage = $("<img>");
+            topicImage.attr("src", results[i].images.fixed_height.url);
   
-            animalDiv.prepend(p);
-            animalDiv.prepend(animalImage);
+            topicDiv.prepend(p);
+            topicDiv.prepend(topicImage);
   
-            $("#displayGifs1b").prepend(animalDiv);
+            $("#displayGifs1b").prepend(topicDiv);
         }
 
         for (var i = 8; i < 12; i++) {
-        var animalDiv = $("<div>");
-        $(animalDiv).css('margin', "1em");
+        var topicDiv = $("<div>");
+        $(topicDiv).css('margin', "1em");
 
         var rating = results[i].rating;
 
         var p = $("<p>").text("Rating: " + rating);
 
-        var animalImage = $("<img>");
-        animalImage.attr("src", results[i].images.fixed_height.url);
+        var topicImage = $("<img>");
+        topicImage.attr("src", results[i].images.fixed_height.url);
 
-        animalDiv.prepend(p);
-        animalDiv.prepend(animalImage);
+        topicDiv.prepend(p);
+        topicDiv.prepend(topicImage);
 
-        $("#displayGifs1c").prepend(animalDiv);
+        $("#displayGifs1c").prepend(topicDiv);
         }
 
         
@@ -83,9 +81,9 @@ $("#button1").on("click", function() {
   });
 
   $("#button2").on("click", function() {
-    var animal = $(this).attr("data-animal");
+    var topic = $(this).attr("data-topic");
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-      animal + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=12";
+      topic + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=12";
     $(this).hide();  
     $("#carouselControls2").show();
 
@@ -96,54 +94,54 @@ $("#button1").on("click", function() {
         var results = response.data;
 
         for (var i = 0; i < 4; i++) {
-          var animalDiv = $("<div>");
-          $(animalDiv).css('margin', "1em");
+          var topicDiv = $("<div>");
+          $(topicDiv).css('margin', "1em");
 
           var rating = results[i].rating;
 
           var p = $("<p>").text("Rating: " + rating);
 
-          var animalImage = $("<img>");
-          animalImage.attr("src", results[i].images.fixed_height.url);
+          var topicImage = $("<img>");
+          topicImage.attr("src", results[i].images.fixed_height.url);
 
-          animalDiv.prepend(p);
-          animalDiv.prepend(animalImage);
+          topicDiv.prepend(p);
+          topicDiv.prepend(topicImage);
 
-          $("#displayGifs2a").prepend(animalDiv);
+          $("#displayGifs2a").prepend(topicDiv);
         }
 
         for (var i = 4; i < 8; i++) {
-            var animalDiv = $("<div>");
-            $(animalDiv).css('margin', "1em");
+            var topicDiv = $("<div>");
+            $(topicDiv).css('margin', "1em");
 
             var rating = results[i].rating;
 
             var p = $("<p>").text("Rating: " + rating);
 
-            var animalImage = $("<img>");
-            animalImage.attr("src", results[i].images.fixed_height.url);
+            var topicImage = $("<img>");
+            topicImage.attr("src", results[i].images.fixed_height.url);
 
-            animalDiv.prepend(p);
-            animalDiv.prepend(animalImage);
+            topicDiv.prepend(p);
+            topicDiv.prepend(topicImage);
 
-            $("#displayGifs2b").prepend(animalDiv);
+            $("#displayGifs2b").prepend(topicDiv);
             }
 
         for (var i = 8; i < 12; i++) {
-        var animalDiv = $("<div>");
-        $(animalDiv).css('margin', "1em");
+        var topicDiv = $("<div>");
+        $(topicDiv).css('margin', "1em");
 
         var rating = results[i].rating;
 
         var p = $("<p>").text("Rating: " + rating);
 
-        var animalImage = $("<img>");
-        animalImage.attr("src", results[i].images.fixed_height.url);
+        var topicImage = $("<img>");
+        topicImage.attr("src", results[i].images.fixed_height.url);
 
-        animalDiv.prepend(p);
-        animalDiv.prepend(animalImage);
+        topicDiv.prepend(p);
+        topicDiv.prepend(topicImage);
 
-        $("#displayGifs2c").prepend(animalDiv);
+        $("#displayGifs2c").prepend(topicDiv);
         }
 
 
@@ -155,9 +153,9 @@ $("#button1").on("click", function() {
   });
 
   $("#button3").on("click", function() {
-    var animal = $(this).attr("data-animal");
+    var topic = $(this).attr("data-topic");
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-      animal + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=12";
+      topic + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=12";
     $(this).hide();  
     $("#carouselControls3").show();
 
@@ -168,56 +166,56 @@ $("#button1").on("click", function() {
         var results = response.data;
 
         for (var i = 0; i < 4; i++) {
-          var animalDiv = $("<div>");
-          $(animalDiv).css('margin', "1em");
+          var topicDiv = $("<div>");
+          $(topicDiv).css('margin', "1em");
 
           var rating = results[i].rating;
 
           var p = $("<p>").text("Rating: " + rating);
 
-          var animalImage = $("<img>");
-          animalImage.attr("src", results[i].images.fixed_height.url);
+          var topicImage = $("<img>");
+          topicImage.attr("src", results[i].images.fixed_height.url);
 
-          animalDiv.prepend(p);
-          animalDiv.prepend(animalImage);
+          topicDiv.prepend(p);
+          topicDiv.prepend(topicImage);
 
-          $("#displayGifs3a").prepend(animalDiv);
+          $("#displayGifs3a").prepend(topicDiv);
         
         }
 
         for (var i = 4; i < 8; i++) {
-        var animalDiv = $("<div>");
-        $(animalDiv).css('margin', "1em");
+        var topicDiv = $("<div>");
+        $(topicDiv).css('margin', "1em");
 
         var rating = results[i].rating;
 
         var p = $("<p>").text("Rating: " + rating);
 
-        var animalImage = $("<img>");
-        animalImage.attr("src", results[i].images.fixed_height.url);
+        var topicImage = $("<img>");
+        topicImage.attr("src", results[i].images.fixed_height.url);
 
-        animalDiv.prepend(p);
-        animalDiv.prepend(animalImage);
+        topicDiv.prepend(p);
+        topicDiv.prepend(topicImage);
 
-        $("#displayGifs3b").prepend(animalDiv);
+        $("#displayGifs3b").prepend(topicDiv);
         
         }
 
         for (var i = 8; i < 12; i++) {
-        var animalDiv = $("<div>");
-        $(animalDiv).css('margin', "1em");
+        var topicDiv = $("<div>");
+        $(topicDiv).css('margin', "1em");
 
         var rating = results[i].rating;
 
         var p = $("<p>").text("Rating: " + rating);
 
-        var animalImage = $("<img>");
-        animalImage.attr("src", results[i].images.fixed_height.url);
+        var topicImage = $("<img>");
+        topicImage.attr("src", results[i].images.fixed_height.url);
 
-        animalDiv.prepend(p);
-        animalDiv.prepend(animalImage);
+        topicDiv.prepend(p);
+        topicDiv.prepend(topicImage);
 
-        $("#displayGifs3c").prepend(animalDiv);
+        $("#displayGifs3c").prepend(topicDiv);
         
         }
 

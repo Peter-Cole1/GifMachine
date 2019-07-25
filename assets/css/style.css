@@ -1,5 +1,5 @@
 #displayGifs1a, #displayGifs1b, #displayGifs1c {
-    background-color: lightblue;
+    background-color: #eb6edc;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -7,14 +7,14 @@
 
 
 #displayGifs2a, #displayGifs2b, #displayGifs2c {
-    background-color: lightcoral;
+    background-color: #fd82a1;
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
 #displayGifs3a, #displayGifs3b, #displayGifs3c {
-    background-color: lightgreen;
+    background-color: #aff382;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -22,22 +22,29 @@
 
 #buttonContainer1 {
     text-align: center;
-    background-color: lightblue;
+    background-color: #eb6edc;
     height: 5em;
 }
 
 #buttonContainer2 {
     text-align: center;
-    background-color: lightcoral;
+    background-color: #fd82a1;
     height: 5em;
 }
 
 #buttonContainer3 {
     text-align: center;
-    background-color: lightgreen;
+    background-color: #aff382;
     height: 5em;
 }
 
 #carouselControls1, #carouselControls2, #carouselControls3 {
     width: 100%;
+}
+
+#title {
+    background-color: antiquewhite;
+    font-family: 'Press Start 2P', cursive;
+    height: 5em;
+    padding-top: 2em;
 }
